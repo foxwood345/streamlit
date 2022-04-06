@@ -9,8 +9,6 @@ import torchvision
 import numpy as np
 import pandas as pd
 # import cv2
-from mmseg.apis import show_result_pyplot
-from mmseg.core.evaluation import get_palette
 
 # visulaization
 import matplotlib.pyplot as plt
@@ -21,7 +19,6 @@ from pathlib import Path
 import requests
 # my module
 import classification as cls
-import segmentation as seg
 import utils
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -30,7 +27,7 @@ st.set_page_config(page_title="TY's Lab", page_icon='😁',
 
 st.title("MY Lab")
 
-menu_opt = ('Main', 'MNIST', 'SEGMENTATION', 'FFCV',)
+menu_opt = ('Main', 'MNIST', 'FFCV',)
 selected_menu = st.sidebar.selectbox('Select Menu', menu_opt)
 
 
@@ -113,47 +110,6 @@ if selected_menu == 'MNIST':
     st.plotly_chart(fig, use_container_width=True)
 
 
-if selected_menu == 'SEGMENTATION':
-  st.markdown("<h1 align='center'; >MMSegmentation test</h1>", unsafe_allow_html=True)
-
-
-  img_radio_method = st.sidebar.radio( "Choose", ('select', 'upload'))
-
-  # col1, col2, col3 = st.columns(3)
-
-  
-  if img_radio_method == 'select':
-    img_num = st.selectbox('Select Image', ('demo1.jpg', 'demo2.jpg'))
-
-    img_path= "./data/segmentation/" + img_num
-    st.write("### Source Image:")
-    image = Image.open(img_path)
-    st.image(image, width=400, use_column_width=True)
-    # img_tensor = torchvision.transforms.ToTensor()(image).unsqueeze(0)
-    
-  elif img_radio_method == 'upload':
-    uploaded_file = st.sidebar.file_uploader("Choose an image...", type="jpg")
-    if uploaded_file is not None:
-        # print(type(uploaded_file))
-        image = Image.open(uploaded_file)
-        st.image(image, caption='Uploaded Image.', use_column_width=True)
-        st.write("")
-        # img_tensor = torchvision.transforms.ToTensor()(image).unsqueeze(0)
-
-  clicked = st.button("Segmentation")
-  if clicked:
-    with st.spinner('Loading the model...'):
-      model = seg.load_model()
-
-    st.success('Loading the model.. Done!')
-    st.balloons()
-    image_tensor = np.asarray(image)
-    result = seg.inference(model, image_tensor)
-    # st.write(f'{preds.shape}')
-    
-    st.pyplot(show_result_pyplot(model, image_tensor, result, get_palette('cityscapes')),
-              clear_figure=True)
-    
 if selected_menu == 'FFCV':
   st.markdown("<h1 align='center';> FFCV </h1>", unsafe_allow_html=True)
 

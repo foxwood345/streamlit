@@ -12,6 +12,3 @@ torch-optimizer==0.1.0
 pytorch_lightning==1.6.0
 altair==4.2.0
 ffmpeg
-mmcv-full -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.10.0/index.html
-mmsegmentation
-opencv-python-headless
