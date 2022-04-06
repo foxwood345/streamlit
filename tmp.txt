@@ -1,1 +1,5 @@
 opencv-python-headless
+
+-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11/index.html
+
+torchvision==0.12.0

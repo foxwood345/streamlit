@@ -5,12 +5,12 @@ plotly==5.6.0
 requests==2.27.1
 streamlit==1.8.1
 streamlit_drawable_canvas==0.9.0
-torch==1.11.0
+torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 torchmetrics==0.7.3
-torchvision==0.12.0
 torch-optimizer==0.1.0
 pytorch_lightning==1.6.0
 altair==4.2.0
 ffmpeg
-mmcv-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11/index.html
+mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.10.0/index.html
 mmsegmentation
+opencv-python-headless
