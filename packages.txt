@@ -1,5 +1,4 @@
 libgtk2.0-dev
-opencv-python-headless
 ffmpeg
 libsm6
 libxext6
