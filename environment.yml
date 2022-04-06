@@ -5,18 +5,9 @@ channels:
 - ericmjl
 dependencies:
 - conda
-- scikit-learn
-- scipy
-- pandas
 - numpy
 - matplotlib
 - pip
-- pylint
-- pydocstyle
-- flake8
 - black
-- hvplot
-- bokeh
-- holoviews
 - pip:
   - streamlit
