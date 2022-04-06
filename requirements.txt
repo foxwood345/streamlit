@@ -5,7 +5,8 @@ plotly==5.6.0
 requests==2.27.1
 streamlit==1.8.1
 streamlit_drawable_canvas==0.9.0
-torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
+torch==1.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.11.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 torchmetrics==0.7.3
 torch-optimizer==0.1.0
 pytorch_lightning==1.6.0
