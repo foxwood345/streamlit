@@ -39,8 +39,8 @@ if selected_menu == 'MNIST':
 
   img_radio_method = st.radio( "Choose", ('select', 'draw'))
 
-  # col1, col2, col3 = st.columns(3)
-
+  col1, col2, col3 = st.columns([1,4,1])
+  
   
   if img_radio_method == 'select':
     img_num = st.selectbox('Select Image', ('0.jpg', '1.jpg', '2.jpg',
@@ -50,7 +50,7 @@ if selected_menu == 'MNIST':
     img_path= "./data/mnist/" + img_num
     st.write("### Source Image:")
     image = Image.open(img_path)
-    st.image(image, width=400, use_column_width=True)
+    col2.image(image, width=400, use_column_width=True)
 
     # transform into torch tensor
     img_tensor = torchvision.transforms.ToTensor()(image).unsqueeze(0)
