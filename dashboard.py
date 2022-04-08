@@ -14,6 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image
 import plotly.express as px
+import plotly.graph_objects as go
 # utils
 from pathlib import Path
 import requests
@@ -50,7 +51,7 @@ if selected_menu == 'MNIST':
     img_path= "./data/mnist/" + img_num
     st.write("### Source Image:")
     image = Image.open(img_path)
-    col2.image(image, width=400, use_column_width=True)
+    col2.image(image, width=400,) # use_column_width=True)
 
     # transform into torch tensor
     img_tensor = torchvision.transforms.ToTensor()(image).unsqueeze(0)
@@ -114,3 +115,9 @@ if selected_menu == 'FFCV':
   st.markdown("<h1 align='center';> FFCV </h1>", unsafe_allow_html=True)
 
   model_name = st.selectbox('Select Model', ('EfficientNet', 'Reset'))
+  fig = go.Figure(go.Bar(
+            x=[2.6, 2.5 ],
+            y=['float16', 'float16 + channel_last'],
+            orientation='h'))
+
+  st.plotly_chart(fig)
